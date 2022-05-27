@@ -9,30 +9,13 @@ class Session{
 		$sess_name = 'secure_session_id';
 		$httponly = true; // Celà empechera le javascript d'acceder à la session
 		$secure = false; // true si on utilise de https
-        //session_save_path('/homez.807/drheduca/www/miorh/save_session_data/');
-		//ini_set('session.use_only_cookies', 1); //forces sessions only use cookies
-        //ini_set('session.cookie_domain', '.drheducationci.com');
+        
 		$cookieParams = session_get_cookie_params();
 		session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure, $httponly);
 		session_name($sess_name);
 		session_start(); //start php session
 		session_regenerate_id(); //regenerated session, delete the old one
-        //debug($_SERVER);
-        //debug(session_id());
-        //debug(session_get_cookie_params());
-		//$session_status = session_status();
-        //debug($session_status);
-        //debug($_SESSION);
-
-        // if( $session_status == PHP_SESSION_DISABLED ) 
-        //     debug($session_status.' -> les sessions sont désactivées');
-
-        // if ($session_status == PHP_SESSION_NONE) 
-        //     debug($session_status.' -> les sessions sont activées, mais qu\'aucune n\'existe');
-
-
-        // if($session_status == PHP_SESSION_DISABLED )
-        //      debug($session_status.' -> les sessions sont désactivées ');
+       
         
 
 	}

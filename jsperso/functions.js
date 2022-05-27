@@ -15,7 +15,7 @@ switch(PRODUCTION_ZONE){
 						  break;
 
 	default 			: ROOT = 'http://localhost/parc/';
-	 					  SWITCH_URL = '../js/core/Switch.php';
+	 					  SWITCH_URL = '../core/Switch.php';
 						  break;
 
 }
@@ -40,7 +40,39 @@ function callModel( model, func, params, callback ){
 			})
 	        .always(function(data){
 	        	//alert( "first complete model" );
-			});
+			})
+			.done (function(data, textStatus, jqXHR) {
+				//alert("Success: " + response);
+			})
+			.fail (function(data, textStatus, jqXHR) {
+				//alert("Success: " + response);
+			})
+			
+
+	return aj;
+
+}
+
+
+function callModelText( model, func, params, callback ){
+
+	var aj = $.ajax({
+				beforeSend : function(req){
+					//action before launch ajax
+				},
+				type : "POST",
+				url	 : '../core/Switch.php' ,
+				data : {
+							model 	: model,
+							func 	: func,
+							params 	: params
+						},
+				dataType : 'json'
+
+			})
+	        .always(function(data){
+	        	//alert( "first complete model" );
+			}).responseText;
 
 	return aj;
 

@@ -3,10 +3,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
 <head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta charset="utf-8">
-  <title>DAF - asset Management</title>
+  <title>DAFP - asset Management</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -19,18 +20,19 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="<?php echo SCHOOL?>/pattern/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo DAFMM?>/pattern/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="<?php echo SCHOOL?>/pattern/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="<?php echo SCHOOL?>/pattern/animate/animate.min.css" rel="stylesheet">
-  <link href="<?php echo SCHOOL?>/pattern/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="<?php echo SCHOOL?>/pattern/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="<?php echo SCHOOL?>/pattern/magnific-popup/magnific-popup.css" rel="stylesheet">
-  <link href="<?php echo SCHOOL?>/pattern/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="<?php echo SCHOOL?>/pattern/css/style.css" rel="stylesheet">
+  <link href="<?php echo DAFMM?>/pattern/css/style.css" rel="stylesheet">
+  <link href="<?php echo DAFMM?>/pattern/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="<?php echo DAFMM?>/pattern/animate/animate.min.css" rel="stylesheet">
+  <link href="<?php echo DAFMM?>/pattern/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="<?php echo DAFMM?>/pattern/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="<?php echo DAFMM?>/pattern/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="<?php echo DAFMM?>/pattern/ionicons/css/ionicons.min.css" rel="stylesheet">
+  
   <!-- Main Stylesheet File -->
- 
+  <link href="<?php echo DAFMM?>/pattern/css/style.css" rel="stylesheet">
 </head>
 
 <body id="body">
@@ -41,7 +43,7 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#body" class="scrollto"><span><i class="fa fa-star-half-o" aria-hidden="true"> </i> </span> DAFP</a></h1> 
+        <h1><a href="#body" class="scrollto"><span><i class="fa fa-star-half-o" aria-hidden="true"> </i> </span> DAF - Gestion des Articles</a></h1> 
         <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
 
@@ -71,7 +73,7 @@
 <div class="container">
 
       <div class="hero-banner">
-        <img src="img/intro-carousel/banner.svg" alt="" class="img-fluid">
+        <img src="<?php echo DAFMM ?>/images/intro-carousel/banner.svg" alt="" class="img-fluid">
       </div>
 
       <div class="hero-content">
@@ -108,7 +110,7 @@
         <br> </br> </strong>. Tous droits réservés
       </div>
       <div class="credits"> 
-        Développé par  <i>  SAI (Service des Applications Informatiquessdd) </i>
+        Développé par  <i>  SAI (Service des Applications Informatiquessddhh) </i>
       </div>
     </div>
   </footer><!-- #footer -->
@@ -116,19 +118,21 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript  -->
-  <script src="<?php echo SCHOOL?>/pattern/jquery/jquery.min.js"></script>
-  <script src="<?php echo SCHOOL?>/pattern/jquery/jquery-migrate.min.js"></script>
-  <script src="<?php echo SCHOOL?>/pattern/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?php echo SCHOOL?>/pattern/easing/easing.min.js"></script>
-  <script src="<?php echo SCHOOL?>/pattern/superfish/hoverIntent.js"></script>
-  <script src="<?php echo SCHOOL?>/pattern/superfish/superfish.min.js"></script>
-  <script src="<?php echo SCHOOL?>/pattern/wow/wow.min.js"></script>
-  <script src="<?php echo SCHOOL?>/pattern/owlcarousel/owl.carousel.min.js"></script>
-  <script src="<?php echo SCHOOL?>/pattern/magnific-popup/magnific-popup.min.js"></script>
-  <script src="<?php echo SCHOOL?>/pattern/sticky/sticky.js"></script> 
+
+  
+  <script src="<?php echo DAFMM?>/pattern/jquery/jquery.min.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/jquery/jquery-migrate.min.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/easing/easing.min.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/superfish/hoverIntent.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/superfish/superfish.min.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/wow/wow.min.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/owlcarousel/owl.carousel.min.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/magnific-popup/magnific-popup.min.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/sticky/sticky.js"></script> 
  <!-- <script src="contact/jqBootstrapValidation.js"></script>
  <script src="contact/contact_me.js"></script> -->
-  <script src="<?php echo SCHOOL?>/pattern/js/main.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/js/main.js"></script>
 
 </body>
 

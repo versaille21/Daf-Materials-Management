@@ -27,6 +27,8 @@
 	//print_r($_POST);
 	//die();*/
 
+	
+
 
 	if(  isset($_POST["model"]) ){
 		$model 	= isset($_POST["model"])   ? $_POST["model"]   : null;
@@ -83,7 +85,7 @@
 			
 			include_once '../config/Config.php';
 			include_once 'Controller.php';
-			include_once 'Model.php';
+			include_once 'Models.php';
 			include_once '../controller/'.$controller.'Controller.php';
 			
 			$controller = $controller.'Controller';

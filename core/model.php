@@ -1,3 +1,4 @@
+
 <?php
 
 class model{
@@ -7,11 +8,19 @@ class model{
     public $host ='localhost';
     public $login ='root';
     public $password ='';
-    public $dbname ='bd_parc_info';
+    public $dbname ='bd_suidep';
     public $current_db ="";
 
 
     
+    public function loadRequire($string){
+
+        define('ROOTR',str_replace('/core/Switch.php', '', $_SERVER['SCRIPT_FILENAME']));
+        return(ROOTR.$string);
+        
+        //return(ROOT.$string);
+    }
+
 
     public function read($fields){
       if($fields == null){ $fields ="*";}
@@ -28,6 +37,23 @@ class model{
       }*/
    
     }
+
+
+    // public static function AnneeEncours(){
+    //   global $conneX;     
+    //   $sql = "SELECT id_annee, lib_annee, Encours from annee WHERE Encours = '1' ";
+    //   //echo $sql;
+    //   $req = mysqli_query($conneX, $sql) or die(mysql_error());
+    //   $data = mysqli_fetch_object($req);
+    //   //print_r($data);
+    //   return $data;
+    //   //foreach($data as $k=>$v){
+    //    //   $k = $v;  
+          
+    // }
+
+        //return $v;
+    
     
     
     static function load($name){
@@ -35,41 +61,62 @@ class model{
         return new $name();
     }
     
-    public static function save($data){
+    public function save($data=array()){
         if(isset($data["id"]) && !empty($data["id"])){
-            $sql = "UPDATE".$this->table."SET ";
+            $sql = "UPDATE ".$this->table." SET ";
             foreach ($data as $key => $value) {
-                if($key != "id"){
-                    $sql .= "$key = $value";
+                if(($key != "id") AND ($key != "namePrimaryId")){
+                    $sql .= $key.' = "'.$value.'",';
                 }
                 
             }
             $sql = substr($sql, 0, -1); 
-            $sql .= "WHERE id=".$data["id"];
+            $sql .= " WHERE ".$data["namePrimaryId"]. "=" .$data["id"];
+            //echo $sql;
+            //die();
           
         }
         
         else{
-            $sql = "INSERT INTO".$this->table."(";
+
+            $sql = "INSERT INTO $this->table (";
             foreach ($data as $key => $value) {
                     $sql .= "$key,";
                 
                 
             }
+
             $sql = substr($sql, 0, -1);
-            $sql .=" VALUE (";
+            
+            $sql .=" ) VALUES (";
+            
             foreach ($data as $value){
-                $sql .= "$value, ";
+                $sql .= '"'.htmlspecialchars($value).'", ' ;
             }
-            $sql = substr($sql, 0, -1);
+
+
+
+            $sql = substr($sql, 0, -2);
+            
             $sql .= ")";
-          
+
+            
         }
 
-        echo $sql;
-         
-     mysql_query($sql) or die(mysql_error()." </br> =>".  mysql_query());
-    
+       
+            echo $sql;
+            die();
+            $pre = mysql_query($sql) or die(mysql_error()." </br> =>".  mysql_query());
+        
+            if ($pre != false){
+            $r = "reussie";
+
+            }
+            else{
+            $r = "echec"; 
+            }
+            //die($r);
+            return $r; 
         
     }
     
@@ -91,10 +138,12 @@ class model{
         if(isset($tables)){$sql = "SELECT $fields FROM $tables WHERE $conditions ";}
         if(isset($order)){$sql = $sql." ".$order."";}
         //echo $sql;
+        //die();
         
-        $result = mysql_query($sql) or die(mysql_error()." </br> =>".  mysql_query());
+        global $conneX;
+        $result = mysqli_query($conneX, $sql) or die('Erreur SQL !'.$sql.'<br>'.mysqli_error($conneX));
         $d = array();
-        while($data = mysql_fetch_object($result)){
+        while($data = mysqli_fetch_object($result)){
             $d[] = $data;
             
             
@@ -102,6 +151,7 @@ class model{
         };
         
         //print_r($d);
+        //die();
         return $d;
         
     }

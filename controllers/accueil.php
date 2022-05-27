@@ -1,15 +1,8 @@
 <?php
 
-	class connexion extends Controller{
+	class accueil extends Controller{
 
 		//public $layout = 'start';
-
-        public function newprofile(){
-
-            $d['test'] = 'test';
-            $this->set($d);
-            $this->render('newprofile');
-        }
 
 		public function index(){
 
