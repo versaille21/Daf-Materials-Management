@@ -3,6 +3,92 @@
       <div class="section-header">
           <h2>Créer mon compte ..</h2>
 
+
+          <?php if(isset($stat_success)){ ?>
+                    &nbsp;&nbsp;&nbsp;
+        			<div class="col-md-10 col-lg-12 col-sm-12">
+            		<div class="alert alert-success alert-dismissable">
+              			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+               				Inscription terminée <strong><a href="login.php">Connectez </a> </strong> vous .
+            			</div>
+        			</div>
+        		<?php } ?>
+
+        		<?php if(isset($stat_fail)){ ?>
+                    &nbsp;&nbsp;&nbsp;
+        <div class="col-md-10 col-lg-12 col-sm-12">
+            <div class="alert alert-danger alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Erreur </strong> lors de l'Enrégistrement !
+            </div>
+        </div>
+        <?php } ?> 
+
+
+        <?php if(isset($stat_exist_deja)){ ?>
+            &nbsp;&nbsp;&nbsp;
+        
+
+            <div class="alert alert-danger alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <h5><i class="icon fas fa-ban"></i> Attention !</h5>
+                                    <strong>Attention: </strong> Identifiant ou mot de passe incorrect ! 
+                                    
+            </div>
+
+        <?php } ?>
+
+
+        <?php if(isset($unauthorized)){ ?>
+            &nbsp;&nbsp;&nbsp;
+        
+            <div class="col-md-10 col-lg-12 col-sm-12">
+              <div class="alert alert-warning alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <h5><i class="icon fas fa-ban"></i> Attention !</h5>
+                                    
+                                    <strong>Attention: </strong> Vous ( <strong><?php echo $unauthorized ?> ) </strong> n'êtes pas authorisé à créer votre compte ! 
+                                    
+              </div>
+            </div>
+
+        <?php } ?>
+
+
+
+        <?php if(isset($champs_vide)){ ?>
+            &nbsp;&nbsp;&nbsp;
+       
+        <div class="alert alert-warning alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <h5><i class="icon fas fa-ban"></i> Attention !</h5>
+                                        <strong>Attention: </strong> Un ou plusieurs champ(s) de saisie est/sont vide !                                    
+            </div>
+
+        
+        <?php } ?> 
+
+        <?php if(isset($NoIdentique)){ ?>
+            &nbsp;&nbsp;&nbsp;
+        <div class="col-md-10 col-lg-12 col-sm-12">
+            <div class="alert alert-warning alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 <strong>Attention: </strong> les mots de passe saisis ne sont pas identiques  !
+            </div>
+        </div>
+        <?php } ?>
+
+
+        <?php if(isset($champs_non_selectionne)){ ?>
+            &nbsp;&nbsp;&nbsp;
+        <div class="col-md-10 col-lg-12 col-sm-12">
+            <div class="alert alert-warning alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 <strong>Attention: </strong> Un champ n'a pas été sélectionné !
+            </div>
+        </div>
+        <?php } ?>
+
           
               <div class="alert alert-info alert-dismissible fade show" role="alert">
                   <strong>Je crée mon compte !</strong>
@@ -12,9 +98,7 @@
                   <br> 
                     
                     
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                  
               </div>
                     
         </div>
@@ -34,60 +118,65 @@
                 <div class="loginContent"> 
       
                     <!-- Form itself -->
-                    <form name="sentMessage" class="" id="contactForm"  novalidate> 
+                    <form name="sentMessage" action="newprofile" method="POST" class="" id="contactForm"  > 
 
                         
                         <fieldset class="border p-4">
-                            <legend class="w-auto">S'inscrire ....</legend>
+                            <legend class="w-auto">S'inscrire .....</legend>
 
                           
-
-                                  <label for="matricule"> <b>Matricule :</b> </label>
+                            <div class="form-group">
+                                  <label for="matricule"> <b> <span class="fieldRequired">*</span> Matricule :</b> </label>
                                   <input type="text" class="form-control" 
-                                      placeholder="Ex : 389534X" id="matricule" required
+                                      placeholder="Ex : 389534X" name="matricule" id="matricule" required
                                       />
+                            </div>
                                     
-
-                                    <label for="nom"> <b>Nom :</b> </label>
+                            <div class="form-group">
+                                    <label for="nom"> <b><span class="fieldRequired">*</span> Nom :</b> </label>
                                   <input type="text" class="form-control" 
-                                      placeholder="NOM" id="nom" required
+                                      placeholder="NOM" id="nom" required name="nom" 
                                       />
+                            </div>
 
-
-                                      <label for="prenoms"> <b>Prénoms :</b> </label>
+                            <div class="form-group">
+                                      <label for="prenoms"> <b><span class="fieldRequired">*</span> Prénoms :</b> </label>
                                   <input type="text" class="form-control" 
-                                      placeholder="PRENOMS" id="prenoms" required
+                                      placeholder="PRENOMS" id="prenoms" required name="prenoms"
                                       />
+                            </div>
 
+                            <div class="form-group">          
+                                    <label for="lib_Service"> <b> <span class="fieldRequired">*</span>Service :</b> </label>
+                                   <select class="form-control select2" name="id_Demandeur" id="id_Demandeur" style="width: 100%;">
+                                    <option selected="selected" value="vide">Selectionnez votre service</option>
 
-                                      
-                                    <label for="lib_Service"> <b>Service :</b> </label>
-                                   <select class="form-control select2" name="lib_Service" id="lib_Service" style="width: 100%;">
-                                    <option selected="selected" >Selectionnez votre service</option>
+                                    <?php  foreach ($all_Demandeur as $libdir)  {?>
+                                      <option value="<?php echo $libdir->Id_Demandeur ?>" label="<?php echo $libdir->lib_demandeur ?>"> <?php echo $libdir->lib_demandeur ?> </option>  
+                                     <?php } ?>
                                     
-                                      <option value="" label="SAI"> SAI </option>  
-                                      <option value="" label="SEAI"> SEAI </option>  
-                                      <option value="" label="SMA"> SMA </option>  
+                                     
                                     
                                   </select> 
+                            </div>
            
                 
 
                              
 
                           
-
-                                  <label for="motdepasse"> <b>Mot de passe :</b> </label>
+                            <div class="form-group"> 
+                                  <label for="motdepasse"> <b><span class="fieldRequired">*</span> Mot de passe :</b> </label>
                                   <input type="password" class="form-control" placeholder="" 
-                                      id="motdepasse" required
+                                      id="motdepasse" required name="password"
                                        />
-
-
-                                   <label for="confmotdepasse"> <b>Confirmation du mot de passe :</b> </label>
+                            </div>
+                            <div class="form-group"> 
+                                   <label for="confmotdepasse"> <b><span class="fieldRequired">*</span> Confirmation du mot de passe :</b> </label>
                                   <input type="password" class="form-control" placeholder="" 
-                                      id="confmotdepasse" required
+                                      id="confmotdepasse" required name="confirmpassword"
                                        />
-                            
+                            </div>
         
                         <!-- <div class="form-group">
                               <div class="controls">
@@ -106,7 +195,7 @@
                             
                             <span style="color:#ff5722;"> <a href="<?php echo DAFMM ?>/connexion/index" >Je me connecte ! </a> </span>
 
-                            <button type="submit" class="btn btn-primary pull-right appButton">S' inscrire</button><br />
+                            <button type="submit" name="register" class="btn btn-primary pull-right appButton">S' inscrire</button><br />
                         </fieldset>
                   </form>
                 </div>

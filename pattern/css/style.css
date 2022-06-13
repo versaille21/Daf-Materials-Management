@@ -1217,20 +1217,30 @@ p.help-block li {
   margin: 0 auto;
 }
 
-.loginContent{
-
+.loginContent {
   padding-top: 100px;
 }
 
-.appButton{
-  background: #FF5722;
+.appButton {
+  background: #ff5722;
   border: 0;
   border-radius: 55px;
   padding: 6px 30px;
   color: #fff;
   transition: 0.4s;
   cursor: pointer;
-  border: 2px solid #FF5722;
-
+  border: 2px solid #ff5722;
 }
 
+.form-group input {
+  text-transform: uppercase;
+}
+
+.fieldRequired {
+  color: red;
+  font-size: large;
+}
+
+.card-dashb {
+  flex: auto;
+}

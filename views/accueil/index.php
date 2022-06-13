@@ -1,6 +1,6 @@
    
     <div class="hero-banner">
-        <img src="<?php echo DAFMM?>/images/intro-carousel/new-banner.svg" alt="" class="img-fluid">
+        <img src="<?php echo DAFMM?>/images/intro-carousel/banner-mm.svg" alt="" class="img-fluid">
     </div>
 
     <div class="hero-content">

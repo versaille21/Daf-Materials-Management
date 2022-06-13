@@ -1,6 +1,7 @@
 <?php
 class agentModel extends model{
 
+    
 	var $table = "agent";
 
 	
@@ -34,9 +35,9 @@ class agentModel extends model{
 
             "tables" => "agent, roles",
 
-            "fields" => " agent.id_Agent, agent.matricule, agent.nom, agent.prenoms, agent.fonction, agent.id_Service, agent.id_role, roles.slug",
+            "fields" => " agent.id_agent, agent.matricule, agent.nom_Agent, agent.prenoms_Agent, agent.Id_Fonction, agent.Id_Demandeur, agent.id_role, roles.slug",
 
-            "conditions" => " agent.id_role = roles.id_role AND matricule = '".$param['matricule']."' and passwd_crypte = '".$param['password_crypte']."'"
+            "conditions" => " agent.id_role = roles.id_role AND matricule = '".$param['matricule']."' and password_Agent = '".$param['mypassword']."'"
 
            ) 
          
@@ -47,14 +48,16 @@ class agentModel extends model{
 
     public function savedAgent($param) {
 
-        // Cette methode permet de rechercher le materiel non encore enregistre dans le Stock
+        global $conneX;
+        // Cette methode permet d'enregistrer un agent'
         
-       $sql = " INSERT INTO agent (matricule, nom, prenoms, passwd_crypte, mot_de_passe, id_service, id_role)
-        VALUES ('".$param['matricule']."', '".$param['nom']."', '".$param['prenom']."',  '".$param['password_crypte']."', '".$param['password']."', '".$param['lib_Service']."', '".$param['id_role']."')
+       $sql = " INSERT INTO agent (matricule, id_Demandeur, nom_Agent, prenoms_Agent, id_Fonction, id_role,password_Agent)
+        VALUES ('".$param['matricule']."', '".$param['id_Demandeur']."' , '".$param['nom']."', '".$param['prenoms']."', '1', '".$param['id_role']."',   '".$param['password']."')
         ";
         
-    
-         $pre = mysql_query( $sql) or die('Erreur SQL !'.$sql.'<br>'.mysql_error()); 
+        
+        $pre = mysqli_query($conneX, $sql) or die('Erreur SQL !'.$sql.'<br>'.mysqli_error($conneX));
+        // $pre = mysql_query( $sql) or die('Erreur SQL !'.$sql.'<br>'.mysql_error()); 
 
          if ($pre != false){
             $r = "reussie";
@@ -71,11 +74,11 @@ class agentModel extends model{
 
 
     public function checkIfAgentExistByMatricule($param){
-
+        global $conneX;
         $sql ="SELECT * from agent where matricule = '".$param['matricule']."' ";
 
-        $pre = mysql_query($sql);
-        $rows = mysql_num_rows($pre);
+        $pre = mysqli_query($conneX, $sql);
+        $rows = mysqli_num_rows($pre);
 
         if ($rows == 0) {
             $r = 0;

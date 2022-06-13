@@ -3,6 +3,27 @@
       <div class="section-header">
           <h2>Accéder à mon espace ..</h2>
 
+          <?php if(isset($stat_incorrect_param)){ ?>
+            &nbsp;&nbsp;&nbsp;
+        <div class="col-md-10 col-lg-12 col-sm-12">
+            <div class="alert alert-warning alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>Attention: </strong> Matricule ou Mot de passe incorrect !    </div>
+        </div>
+        <?php } ?>
+
+
+
+        <?php if(isset($champs_vide)){ ?>
+            &nbsp;&nbsp;&nbsp;
+        <div class="col-md-10 col-lg-12 col-sm-12">
+            <div class="alert alert-warning alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                 <strong>Attention: </strong> Les champs MATRICULE ou MOT DE PASSE ne doivent pas être vide !
+            </div>
+        </div>
+        <?php } ?> 
+
           
               <div class="alert alert-info alert-dismissible fade show" role="alert">
                   <strong>Avez-vous un compte ?</strong>
@@ -36,7 +57,7 @@
                 <div class="loginContent"> 
       
                     <!-- Form itself -->
-                    <form name="sentMessage" class="" id="contactForm"  novalidate> 
+                    <form name="ConnexionForm" class="" id="ConnexionForm"  method="POST"> 
 
                         
                         <fieldset class="border p-4">
@@ -44,9 +65,9 @@
 
                           
 
-                                  <label for="matricule"> <b>Mon Matricule :</b> </label>
+                                  <label for="matricule"> <b> <span class="fieldRequired">*</span> Mon Matricule :</b> </label>
                                   <input type="text" class="form-control" 
-                                      placeholder="Ex : 389534X" id="matricule" required
+                                      placeholder="Ex : 389534X" id="matricule" name="matricule" required
                                       />
                                     
 
@@ -54,30 +75,20 @@
 
                           
 
-                                  <label for="motdepasse"> <b>Mon Mot de passe :</b> </label>
+                                  <label for="motdepasse"> <b><span class="fieldRequired">*</span> Mon Mot de passe :</b> </label>
                                   <input type="password" class="form-control" placeholder="" 
-                                      id="motdepasse" required
-                                      data-validation-required-message="Please enter your email" />
+                                      id="motdepasse" required name="mypassword"
+                                       />
                             
         
-                        <!-- <div class="form-group">
-                              <div class="controls">
-                                  <textarea rows="10" cols="100" class="form-control" 
-                                      placeholder="Message" id="message" required
-                                      data-validation-required-message="Please enter your message" minlength="5" 
-                                      data-validation-minlength-message="Min 5 characters" 
-                                      maxlength="999" style="resize:none">
-                                      
-                                  </textarea>
-                              </div>
-                        </div>   -->
+                        
                           <br>
                           <div id="success"> </div> <!-- For success/fail messages -->
                             <span> <i> Je n'ai pas de compte ? </i> </span> <br>
                             
                             <span style="color:#ff5722;"> <a href="<?php echo DAFMM ?>/connexion/newprofile" >Je crée mon compte </a> </span>
 
-                            <button type="submit" class="btn btn-primary pull-right appButton">Se connecter</button><br />
+                            <button type="submit" name="connexion" class="btn btn-primary pull-right appButton">Se connecter</button><br />
                         </fieldset>
                   </form>
                 </div>

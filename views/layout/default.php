@@ -20,11 +20,14 @@
 
   <!-- Bootstrap CSS File -->
   <link href="<?php echo DAFMM?>/pattern/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo DAFMM?>/pattern/css/select2.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?php echo DAFMM ?>/pattern/css/select2-bootstrap4.min.css">
 
   <!-- Libraries CSS Files -->
   <link href="<?php echo DAFMM ?>/pattern/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="<?php echo DAFMM ?>/pattern/animate/animate.min.css" rel="stylesheet">
   <link href="<?php echo DAFMM ?>/pattern/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <link href="<?php echo DAFMM ?>/pattern/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="<?php echo DAFMM ?>/pattern/magnific-popup/magnific-popup.css" rel="stylesheet">
   <link href="<?php echo DAFMM ?>/pattern/ionicons/css/ionicons.min.css" rel="stylesheet">
@@ -182,16 +185,23 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
           <li class="menu-active"><a href="<?php echo DAFMM ?>/accueil/index">Accueil</a></li>
+          <?php if(!Session::get('nom')){?>
           <li><a href="#about">A propos</a></li>
           <li><a href="<?php echo DAFMM ?>/connexion/index">Se connecter</a></li>
-          <li class="menu-has-children"><a href="" class="sf-with-ul">Bonjour Assoua</a>
+          <?php } ?>
+          
+
+          
+          <?php if(Session::get('nom')){?>
+          <li class="menu-has-children"><a href="" class="sf-with-ul">Bonjour <?php echo Session::get('nom');?></a>
             <ul style="display: none;">
-              <li><a href="#">Link Item 1</a></li>
-              <li><a href="#">Link Item 3</a></li>
-              <li><a href="#">Link Item 4</a></li>
-              <li><a href="#">Link Item 5</a></li>
+              <li><a href="#">Changer Mot de passe</a></li>
+              <li><a href="<?php echo DAFMM ?>/deconnexion/index">Se déconnecter</a></li>
+              <!-- <li><a href="#">Link Item 4</a></li>
+              <li><a href="#">Link Item 5</a></li> -->
             </ul>
           </li>
+          <?php } ?>
           <!-- <li><a href="#contact">Contact</a></li> -->
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -262,7 +272,7 @@
         <br> </br> </strong>. Tous droits réservés
       </div>
       <div class="credits"> 
-        Développé par  <i>  SAI (Service des Applications Informatique) </i>
+        Développé par  <i>  SAI (Service des Applications Informatiques) </i>
       </div>
     </div>
   </footer><!-- #footer -->
@@ -273,6 +283,7 @@
   <script src="<?php echo DAFMM?>/pattern/jquery/jquery.min.js"></script>
   <script src="<?php echo DAFMM?>/pattern/jquery/jquery-migrate.min.js"></script>
   <script src="<?php echo DAFMM?>/pattern/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo DAFMM ?>/pattern/js/select2.full.min.js"></script>
   <script src="<?php echo DAFMM?>/pattern/easing/easing.min.js"></script>
   <script src="<?php echo DAFMM?>/pattern/superfish/hoverIntent.js"></script>
   <script src="<?php echo DAFMM?>/pattern/superfish/superfish.min.js"></script>
@@ -280,9 +291,14 @@
   <script src="<?php echo DAFMM?>/pattern/owlcarousel/owl.carousel.min.js"></script>
   <script src="<?php echo DAFMM?>/pattern/magnific-popup/magnific-popup.min.js"></script>
   <script src="<?php echo DAFMM?>/pattern/sticky/sticky.js"></script> 
+  <!-- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
  <!-- <script src="contact/jqBootstrapValidation.js"></script>
  <script src="contact/contact_me.js"></script> -->
   <script src="<?php echo DAFMM?>/pattern/js/main.js"></script>
+  <script src="<?php echo DAFMM?>/pattern/jsperso/app.js?<?php echo date("Y-m-d H:i:s");?>"></script>
+
+  <script src="<?php echo DAFMM?>/pattern/jsperso/functions.js?<?php echo date("Y-m-d H:i:s");?>"></script> 
 
   <nav id="mobile-nav">
         <ul class="" style="touch-action: pan-y;" id="">
