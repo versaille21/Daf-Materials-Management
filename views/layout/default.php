@@ -193,6 +193,16 @@
 
           
           <?php if(Session::get('nom')){?>
+          
+          
+            <li class="menu-has-children"><a href="<?php echo DAFMM ?>/connexion/index">Demandes</a>
+              <ul style="display: none;">
+
+              <li><a href="#">Faire une demande</a></li>
+              <li><a href="<?php echo DAFMM ?>/deconnexion/index">Voir les demandes</a></li>
+              
+              </ul>
+            </li>
           <li class="menu-has-children"><a href="" class="sf-with-ul">Bonjour <?php echo Session::get('nom');?></a>
             <ul style="display: none;">
               <li><a href="#">Changer Mot de passe</a></li>
